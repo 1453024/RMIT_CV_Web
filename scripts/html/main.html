@@ -12,14 +12,13 @@
         crossorigin="anonymous">
 </head>
 
-<body>
+<body style="padding-bottom: 50px;">
     <div class="container">
         <header>
             <div class="header-left">
                 <h1>Interview Ready</h1>
                 <p><b>Target students:</b> Senior students (sem 4 and above), SAS, internship and final-sem students</p>
             </div>
-
             <div class="header-right">
                 <img src="/img/RMIT_logo.png" alt="">
             </div>
@@ -27,12 +26,106 @@
         <div class="noti">
             After taking all the coursescourses, <br> you are qualifiedqualified as interview ready!
         </div>
-        <div class="item">
+        <div class="item" id="mock">
+            <div class="space"></div>
             <div class="square-item">
-                <p class="title">Mock <br> interview</p>
-                <div class="week">
-                    <p>Week 3 - Thursday</p>
-                    <p>Week 3 - Friday</p>
+                <div class="title">Mock <br> interview</div>
+                <div class="week-list">
+                    <div class="week">Week 3 - Thursday</div>
+                    <div class="week">Week 3 - Friday</div>
+                </div>
+            </div>
+            <div class="white-item">
+                <div class="finish">
+                    Finish
+                </div>
+                <div class="content">
+                    Aim to have 50 students on Thu and Fri sessions Fri session needs 5 interviewers for max 2 hour work Each mock interview
+                    takes max 30 min including feed- back time
+                </div>
+                <div class="sub-list">
+                    <div class="sub-item">
+                        Mock Interview 1
+                    </div>
+                    <div class="sub-item">
+                        Mock Interview 2
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" id="workshop">
+            <div class="white-item">
+                <div class="content">
+                    Main content: what to do before, during and after an interview; behavioural interview questions and STAR model; sharing tips
+                    and simulation
+                </div>
+            </div>
+            <div class="square-item">
+                <div class="title right">Interview<br>workshop</div>
+                <div class="week-list">
+                    <div class="week">Week 3 - Tuesday</div>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+        <div class="item" id="group">
+            <div class="space"></div>
+            <div class="square-item">
+                <div class="title">Group <br> interview</div>
+                <div class="week-list">
+                    <div class="week">Week 3 - Thursday</div>
+                </div>
+                <div class="button" id="group_button1">
+                    If your cv needed enhancement
+                </div>
+            </div>
+            <div class="white-item">
+                <div class="content">
+                    Aim to have 20 students + 4, 5 interviewers Students will be sent some JDs before W3 Tue to pre- pare Each interviewer will
+                    do group interview of 4-5 students Group interview happens in 1hours Ask 5 questions Interviewers take
+                    notes as to suggest students to move to next stages Inform students their next session + send feedback
+                </div>
+                <div class="sub-list"></div>
+                <div class="button" id="group_button2">
+                    If your cv is qualified
+                </div>
+            </div>
+        </div>
+        <div class="item" id="cvworkshop">
+            <div class="white-item">
+                <div class="content">
+                    Main content: what to do before, during and after an interview; behavioural interview questions and STAR model; sharing tips
+                    and simulation
+                </div>
+            </div>
+            <div class="square-item">
+                <div class="title right">CV<br>workshop</div>
+                <div class="week-list">
+                    <div class="week">Week 3 - Tuesday</div>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+        <div class="item active" id="submission">
+            <div class="space"></div>
+            <div class="square-item">
+                <div class="title">Cv<br>Submission</div>
+                <div class="week-list">
+                    <div class="week">Week 3 - Thursday</div>
+                </div>
+                <div class="button" id="submission_button1">
+                    If your cv needed enhancement
+                </div>
+            </div>
+            <div class="white-item">
+                <div class="content">
+                    Aim to have 20 students + 4, 5 interviewers Students will be sent some JDs before W3 Tue to pre- pare Each interviewer will
+                    do group interview of 4-5 students Group interview happens in 1hours Ask 5 questions Interviewers take
+                    notes as to suggest students to move to next stages Inform students their next session + send feedback
+                </div>
+                <div class="sub-list"></div>
+                <div class="button" id="submission_button2">
+                    If your cv is qualified
                 </div>
             </div>
         </div>
@@ -45,6 +138,51 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
+
+    <script>
+        function handleActive(id) {
+            if (!$(id).hasClass("active")) {
+                $(id).addClass("active")
+            }
+        }
+
+        function handleDeactive(id) {
+            if ($(id).hasClass("active")) {
+                $(id).removeClass("active")
+            }
+        }
+
+        function groupButton1Clicked() {
+            handleActive("#mock")
+            handleActive("#workshop")
+        }
+
+        function groupButton2Clicked() {
+            handleActive("#mock")
+            handleDeactive("#workshop")
+        }
+
+        function submissionButton1Clicked() {
+            handleActive("#cvworkshop")
+            handleDeactive("#group")
+            handleActive("#workshop")
+            handleActive("#mock")
+        }
+
+        function submissionButton2Clicked() {
+            handleDeactive("#cvworkshop")
+            handleActive("#group")
+            handleDeactive("#workshop")
+            handleDeactive("#mock")
+        }
+
+        $(document).ready(function () {
+            $("#group_button1").click(groupButton1Clicked)
+            $("#group_button2").click(groupButton2Clicked)
+            $("#submission_button1").click(submissionButton1Clicked)
+            $("#submission_button2").click(submissionButton2Clicked)
+        })
+    </script>
 </body>
 
 </html>
