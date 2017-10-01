@@ -76,9 +76,11 @@ body {
 
 
   .header-left {
+    display: inline-block;
     margin-top: 50px;
     margin-bottom: 50px;
     color: rgb(0, 0, 84);
+    animation: fadeInRight 2s ease-in-out 0s infinite;
   }
   .header-left h1 {
     font-size: 85px;
@@ -88,6 +90,15 @@ body {
   .header-left p {
     font-size: 14px;
   }
+  .header-right{
+    display: inline-block;
+    float: right;
+  }
+.header-right img{
+  width: 220px;
+  height: 140px;
+}
+
   .noti {
     text-transform: uppercase;
     font-size: 24px;
@@ -187,6 +198,14 @@ body {
     top: -30px;
     right: 0;
   }
+
+  .start{
+    font-weight: bold;
+    font-size: 14px;
+    color: #8ac446;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
   
   .reg-item {
     height: 300px;
@@ -279,3 +298,18 @@ body {
     opacity: 1;
   }
   
+  .fadeInRight {
+    animation-name: fadeInRight;
+  }
+  
+  @keyframes fadeInRightBig {
+    from {
+      opacity: 0;
+      transform: translate3d(2000px, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
